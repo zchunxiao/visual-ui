@@ -1,0 +1,274 @@
+{
+    "status": "200",
+    "message": "成功",
+    "payload": {
+      "lzlzQmDetailDtoList": [
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 14.9,
+          "ingPotTemp": 496.6,
+          "fmtActualSpeed": 1.7
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        },
+        {
+          "ingPotCap": 21,
+          "ingPotTemp": 458.4,
+          "fmtActualSpeed": 0
+        }
+      ],
+      "hgQmDetailDtoList": [
+        {
+          "hgTemp": 0,
+          "acidQty": 0,
+          "waterQty": 0,
+          "leadQty": 0
+        },
+        {
+          "hgTemp": 36.9,
+          "acidQty": 103.2,
+          "waterQty": 118,
+          "leadQty": 1114
+        }
+      ],
+      "ltQmDetailDtoList": [
+        {
+          "speed": 0,
+          "dryTemp": 0,
+          "buzzer": 0,
+          "burner": 0
+        },
+        {
+          "speed": 0,
+          "dryTemp": 0,
+          "buzzer": 0,
+          "burner": 0
+        },
+        {
+          "speed": 0,
+          "dryTemp": 0,
+          "buzzer": 0,
+          "burner": 0
+        },
+        {
+          "speed": 0,
+          "dryTemp": 0,
+          "buzzer": 0,
+          "burner": 0
+        }
+      ],
+      "aiDto": {
+        "rate": 1.0000,
+        "ngQty": 207,
+        "sum": 207
+      }
+    },
+    "success": true
+  }
