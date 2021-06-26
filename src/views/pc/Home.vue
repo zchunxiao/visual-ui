@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../../assets/logo.png" />
-    222211
-    <div @click="goMobile" class="demo">跳转到移动端页面</div>
+    <div v-for="(data, index) in routersList" :key="index">
+      <router-link :to="data.path">{{ data.name }}</router-link>
+    </div>
   </div>
 </template>
 
@@ -12,18 +12,29 @@
 export default {
   name: "Home",
   components: {},
-  methods: {
-    goMobile() {
-      window.location.href = window.location.href.replace("/pc", "/mobile");
-    },
+  data() {
+    return {
+      routersList: [],
+    };
+  },
+  methods: {},
+  mounted() {
+    const {
+      $router: { options = {} },
+    } = this;
+    const { routes } = options;
+    console.log("aaa:",routes)
+    this.routersList = routes.slice(3);
   },
 };
 </script>
 <style scoped>
-.demo {
-  width: 100PX;
-  height: 100PX;
+.home {
   background: #ccc;
-  color: #fff;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding:20px;
+  box-sizing: border-box;
 }
 </style>

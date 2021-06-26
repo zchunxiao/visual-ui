@@ -8,6 +8,7 @@ import groupRoutes from "./group.js"
 import jnRoutes from "./jn.js"
 
 Vue.use(VueRouter)
+const NotFound = resolve => require(['@/404'], resolve)
 
 const routes = [
   {
@@ -16,25 +17,32 @@ const routes = [
   },
   {
     path: '/home',
-    name: 'Home',
+    name: '首页',
     component: Home,
     meta: {
       title: "首页"
     }
   },
-
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '@/views/pc/About.vue'),
-    meta: {
-      title: "关于"
-    }
-  }
+    path: '*',
+    component: NotFound,
+    name: 'notfound'
+  },
+
+  // {
+  //   path: '/about',
+  //   name: 'About',
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () => import(/* webpackChunkName: "about" */ '@/views/pc/About.vue'),
+  //   meta: {
+  //     title: "关于"
+  //   }
+  // }
 ]
+
+
 
 const router = new VueRouter({
   mode: 'history',
