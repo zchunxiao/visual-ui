@@ -1,7 +1,7 @@
 <!-- 吴山质检 -->
 <template>
   <div class="pc-ws__quality">
-    <dv-full-screen-container :full="isFullScreen">
+    <base-container>
       <top-header title="吴山未来工厂质量管理平台" />
       <div class="pc-ws-qt">
         <div class="pc-ws-qt__left">
@@ -104,24 +104,21 @@
           </div>
         </div>
       </div>
-    </dv-full-screen-container>
+    </base-container>
   </div>
 </template>
 
 <script>
-import topHeader from "@/components/views/topHeader";
-import tableScroll from "@/components/views/tableScroll";
-import lineChart from "@/components/views/lineChart";
-import digitalFlop from "@/components/views/digitalFlop";
-import scrollRanking from "@/components/views/scrollRanking";
+
+import tableScroll from "@/components/tableScroll";
+import lineChart from "@/components/lineChart";
+import digitalFlop from "@/components/digitalFlop";
+import scrollRanking from "@/components/scrollRanking";
 import api from "@/api";
-import { Swiper, SwiperSlide } from "vue-awesome-swiper";
-import "swiper/css/swiper.css";
 
 export default {
   data() {
     return {
-      isFullScreen: false,
       lzlzconfig: {
         header: ["保温锅容量", "铅锅温度", "成型速度"],
         data: [],
@@ -472,13 +469,11 @@ export default {
   },
 
   components: {
-    topHeader,
+
     tableScroll,
     lineChart,
     digitalFlop,
     scrollRanking,
-    Swiper,
-    SwiperSlide,
   },
 
   computed: {},
@@ -490,12 +485,7 @@ export default {
   },
 
   mounted() {
-    const {
-      createData,
-      $route: { query },
-    } = this;
-    const { full } = query;
-    this.isFullScreen = full ? true : false;
+    const { createData } = this;
 
     createData();
 
@@ -552,144 +542,140 @@ export default {
 };
 </script>
 <style scoped lang="less">
-
-
-
+/*prettier-ignore*/
 .pc-ws__quality {
   width: 100%;
   height: 100%;
   background: #030409;
   color: #fff;
-}
-.dv-border-box-13 {
-  padding: 20PX;
-  box-sizing: border-box;
-}
-.dv-border-box-13 /deep/ .border-box-content {
-  overflow: hidden;
-}
-/deep/ .dv-scroll-ranking-board {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 10PX;
-}
-#dv-full-screen-container {
-  background-image: url("./img/bg.png");
-  background-size: 100% 100%;
-  box-shadow: 0 0 3PX blue;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
+    .dv-border-box-13 {
+      padding: 20PX;
+      box-sizing: border-box;
+    }
+    .dv-border-box-13 /deep/ .border-box-content {
+      overflow: hidden;
+    }
+    /deep/ .dv-scroll-ranking-board {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 10PX;
+    }
+    #dv-full-screen-container {
+      background-image: url("./img/bg.png");
+      background-size: 100% 100%;
+      box-shadow: 0 0 3PX blue;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
 
-.pc-ws-qt {
-  display: flex;
-  justify-content: space-between;
-  height: calc(100% - 60PX);
-  box-sizing: border-box;
-}
-.pc-ws-qt__left {
-  width: 33%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-.pc-ws-qt__center {
-  width: 33%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-.pc-ws-qt__right {
-  width: 33%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-.pc-ws-qt__title {
-  font-size: 20PX;
-  font-weight: bold;
-  padding: 0 0 20PX 0;
-  text-align: left;
-}
+    .pc-ws-qt {
+      display: flex;
+      justify-content: space-between;
+      height: calc(100% - 60PX);
+      box-sizing: border-box;
+    }
+    .pc-ws-qt__left {
+      width: 33%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    .pc-ws-qt__center {
+      width: 33%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    .pc-ws-qt__right {
+      width: 33%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    .pc-ws-qt__title {
+      font-size: 20PX;
+      font-weight: bold;
+      padding: 0 0 20PX 0;
+      text-align: left;
+    }
 
-// 左边
-// 上
-.left__top {
-  box-sizing: border-box;
-  // padding: 0 20PX;
-  height: 32%;
-}
-.left__center {
-  box-sizing: border-box;
-  height: 32%;
-}
-.left__bottom {
-  // width: 100%;
-  box-sizing: border-box;
+    // 左边
+    // 上
+    .left__top {
+      box-sizing: border-box;
+      // padding: 0 20PX;
+      height: 32%;
+    }
+    .left__center {
+      box-sizing: border-box;
+      height: 32%;
+    }
+    .left__bottom {
+      // width: 100%;
+      box-sizing: border-box;
 
-  height: 32%;
+      height: 32%;
+    }
+    // 中
+    .center__top {
+      box-sizing: border-box;
+      height: 32%;
+    }
+    .center__center {
+      box-sizing: border-box;
+      height: 32%;
+    }
+    .center__bottom {
+      box-sizing: border-box;
+      height: 32%;
+    }
+    .center__bottom-info {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .center__bottom-table {
+      flex: 2;
+    }
+    .center__bottom-ranking {
+      flex: 1;
+    }
+    // 右
+    .right__top {
+      box-sizing: border-box;
+      height: 32%;
+    }
+    .right__center {
+      box-sizing: border-box;
+      height: 32%;
+    }
+    .right__center-swiper {
+      height: 50%;
+    }
+    .swiper-container {
+      height: 100%;
+    }
+    .swiper-img {
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 20PX;
+    }
+    .right__center-box {
+      display: flex;
+      justify-content: space-between;
+      margin: 10PX 0 0 0;
+    }
+    .right__center-item {
+      // flex:1;
+      width: 33%;
+    }
+    .right__bottom {
+      box-sizing: border-box;
+      height: 32%;
+    }
 }
-// 中
-.center__top {
-  box-sizing: border-box;
-  height: 32%;
-}
-.center__center {
-  box-sizing: border-box;
-  height: 32%;
-}
-.center__bottom {
-  box-sizing: border-box;
-  height: 32%;
-}
-.center__bottom-info {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-.center__bottom-table {
-  flex: 2;
-}
-.center__bottom-ranking {
-  flex: 1;
-}
-// 右
-.right__top {
-  box-sizing: border-box;
-  height: 32%;
-}
-.right__center {
-  box-sizing: border-box;
-  height: 32%;
-}
-.right__center-swiper {
-  height: 50%;
-}
-.swiper-container {
-  height: 100%;
-}
-.swiper-img {
-  height: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 20PX;
-}
-.right__center-box {
-  display: flex;
-  justify-content: space-between;
-  margin: 10PX 0 0 0;
-}
-.right__center-item {
-  // flex:1;
-  width: 33%;
-}
-.right__bottom {
-  box-sizing: border-box;
-  height: 32%;
-}
-
-
 </style>

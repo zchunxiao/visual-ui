@@ -7,14 +7,23 @@ import errorCode from '@/const/errorCode'
 // import { Message } from 'element-ui'
 import 'nprogress/nprogress.css'
 import qs from 'qs'
+console.log(process,process.env)
 
-axios.defaults.timeout = 30000
-// 返回其他状态吗
+
+// 返回其他状态码
 axios.defaults.validateStatus = function (status) {
   return status >= 200 && status <= 500 // 默认的
 }
-// 跨域请求，允许保存cookie
-axios.defaults.withCredentials = true
+// 根据环境设置baseUrl
+// axios.defaults.baseURL= process.env.NODE_ENV == 'development'?  '/' :"http://192.168.33.86:8001"
+
+// 设置请求超时时间
+axios.defaults.timeout = 30000
+
+// 跨域请求，true为允许保存cookie
+// 当允许保存cookie的时候，服务端设置允许跨域必须为具体地址，不能是通配符
+axios.defaults.withCredentials = false
+
 // NProgress Configuration
 NProgress.configure({
   showSpinner: false

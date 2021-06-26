@@ -55,14 +55,14 @@ module.exports= {
     },
     css: {
         loaderOptions: {
-          postcss: {
-            plugins: [
-              require('postcss-px2rem')({
-                remUnit: 75, //代表 1rem = 75px，所以当你的值为75px时，它会自动转成 (75/75)rem，也就是1rem;
-                remPrecision: 2, // 代表 remUnit 的 2 倍，一般可以不写
-              })
-            ]
-          }
+          // postcss: {
+          //   plugins: [
+          //     require('postcss-px2rem')({
+          //       remUnit: 75, //代表 1rem = 75px，所以当你的值为75px时，它会自动转成 (75/75)rem，也就是1rem;
+          //       remPrecision: 2, // 代表 remUnit 的 2 倍，一般可以不写
+          //     })
+          //   ]
+          // }
         }
     }
 }

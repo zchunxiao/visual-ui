@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/pc/Home.vue'
+import wsRoutes from "./ws.js"
+import msRoutes from "./ms.js"
+import bpRoutes from "./bp.js"
+import groupRoutes from "./group.js"
+import jnRoutes from "./jn.js"
 
 Vue.use(VueRouter)
 
@@ -13,8 +18,8 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: Home,
-    meta:{
-      title:"首页"
+    meta: {
+      title: "首页"
     }
   },
 
@@ -25,27 +30,25 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '@/views/pc/About.vue'),
-    meta:{
-      title:"关于"
+    meta: {
+      title: "关于"
     }
-  },
-  // 吴山未来工厂质量管理平台
-  {
-    path: '/ws/qualityTesting',
-    name: 'qualityTesting',
-    component: () => import(/* webpackChunkName: "about" */ '@/views/pc/ws/qualityTesting/index.vue'),
-    meta:{
-      title:"吴山未来工厂质量管理平台"
-    }
-  },
+  }
 ]
 
 const router = new VueRouter({
   mode: 'history',
   //base: process.env.BASE_URL,
   // base:process.env.NODE_ENV == 'development' ? "/":"/web/",
-  base:"/pc/",
-  routes
+  base: "/pc/",
+  routes: [
+    ...routes,
+    ...wsRoutes,
+    ...msRoutes,
+    ...bpRoutes,
+    ...groupRoutes,
+    ...jnRoutes
+  ]
 })
 
 

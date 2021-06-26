@@ -46,7 +46,7 @@ export default {
       if(this.full){
         dom.style.transform = `scale(${currentWidth / allWidth})`
       }else{
-          dom.style.transform = `scale(1,0.87)`
+          currentWidth / allWidth == 1 ?dom.style.transform = `scale(1,0.87)`: dom.style.transform = `scale(${currentWidth / allWidth})`
       }
     },
     onResize () {

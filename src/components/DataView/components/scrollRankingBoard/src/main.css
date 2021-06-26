@@ -14,33 +14,33 @@
 .dv-scroll-ranking-board .ranking-info {
   display: flex;
   width: 100%;
-  font-size: 13px;
+  font-size: 13PX;
 }
 .dv-scroll-ranking-board .ranking-info .rank {
-  width: 40px;
+  width: 40PX;
   color: #1370fb;
 }
 .dv-scroll-ranking-board .ranking-info .info-name {
   flex: 1;
 }
 .dv-scroll-ranking-board .ranking-column {
-  border-bottom: 2px solid rgba(19, 112, 251, 0.5);
-  margin-top: 5px;
+  border-bottom: 2PX solid rgba(19, 112, 251, 0.5);
+  margin-top: 5PX;
 }
 .dv-scroll-ranking-board .ranking-column .inside-column {
   position: relative;
-  height: 6px;
+  height: 6PX;
   background-color: #1370fb;
-  margin-bottom: 2px;
-  border-radius: 1px;
+  margin-bottom: 2PX;
+  border-radius: 1PX;
   overflow: hidden;
 }
 .dv-scroll-ranking-board .ranking-column .shine {
   position: absolute;
   left: 0%;
-  top: 2px;
-  height: 2px;
-  width: 50px;
+  top: 2PX;
+  height: 2PX;
+  width: 50PX;
   transform: translateX(-100%);
   background: radial-gradient(#28f8ff 5%, transparent 80%);
   animation: shine 3s ease-in-out infinite alternate;
