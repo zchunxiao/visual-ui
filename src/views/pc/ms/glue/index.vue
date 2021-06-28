@@ -74,8 +74,7 @@
 </template>
 
 <script>
-
-import roseChart from "@/components/before/roseChart";
+import roseChart from "@/components/glue/roseChart.vue";
 import api from "@/api";
 export default {
   data() {
@@ -103,9 +102,15 @@ export default {
   methods: {
     createData() {
       const _this = this;
-      api.getMsOutput().then((data) => {
-        if (!data || !data.data) return false;
-        const { devOutput, modelOutput } = data.data.data;
+      api.getMsOutput().then((res) => {
+
+        if (!res) return false;
+        const { code, msg, data } = res;
+        if (code != 0) {
+          console.log(msg);
+          return false;
+        }
+        const { devOutput, modelOutput } = data;
         _this.devOutput = devOutput;
         _this.modelOutput = modelOutput;
         const keys = Object.keys(modelOutput),
@@ -118,10 +123,16 @@ export default {
         });
         _this.modelOutputList = list;
       });
-      api.getMsStatus().then((data) => {
-        if (!data || !data.data) return false;
+      api.getMsStatus().then((res) => {
 
-        const { onlineDev, allDev } = data.data.data;
+        if (!res) return false;
+        const { code, msg, data } = res;
+        if (code != 0) {
+          console.log(msg);
+          return false;
+        }
+
+        const { onlineDev, allDev } = data;
 
         _this.pieOption = {
           data: [

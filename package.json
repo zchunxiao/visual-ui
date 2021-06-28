@@ -16,6 +16,8 @@
     "core-js": "^3.6.5",
     "crypto-js": "^4.0.0",
     "lib-flexible": "^0.3.2",
+    "mint-ui": "^2.2.13",
+    "moment": "^2.29.1",
     "nprogress": "^0.2.0",
     "postcss-px2rem": "^0.3.0",
     "qs": "^6.5.2",

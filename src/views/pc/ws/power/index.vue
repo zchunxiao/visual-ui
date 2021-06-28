@@ -829,11 +829,15 @@ export default {
   },
   methods: {
     createData() {
-      //this.rotate = false;
+
       api.getPower().then((res) => {
-        if (!res || !res.data) return false;
-        const { code, data } = res.data;
-        if (code != 0) return false;
+
+        if(!res) return false;
+        const {code,msg,data}= res;
+        if(code !=0){
+          console.log(msg);
+          return false;
+        }
         const {
           bzReportDto,
           lzlzReportDto,
@@ -1011,17 +1015,23 @@ export default {
 
       // 球磨
       api.getQmOutput().then((res) => {
-        if (!res || !res.data) return false;
-        const { code, data } = res.data;
-        if (code != 0) return false;
+         if(!res) return false;
+        const {code,msg,data}= res;
+        if(code !=0){
+          console.log(msg);
+          return false;
+        }
         this.qmObj = data;
       });
 
       // 机械手臂
       api.getArmOutput().then((res) => {
-        if (!res || !res.data) return false;
-        const { code, data } = res.data;
-        if (code != 0) return false;
+      if(!res) return false;
+        const {code,msg,data}= res;
+        if(code !=0){
+          console.log(msg);
+          return false;
+        }
         let num = 0;
         (data || []).map((item) => {
           num += +item.yield;
@@ -1048,10 +1058,12 @@ export default {
 
       // 封装
       api.getBriefOutput().then((res) => {
-        if (!res || !res.data) return false;
-        const { code, data } = res.data;
-        if (code != 0) return false;
-        //this.rotate = true
+       if(!res) return false;
+        const {code,msg,data}= res;
+        if(code !=0){
+          console.log(msg);
+          return false;
+        }
         this.modelList = data.modelOutput;
 
         data.modelOutput.slice(0, 5).map((data, index) => {
@@ -1086,9 +1098,13 @@ export default {
 
       // 打码
       api.getCode().then((res) => {
-        if (!res || !res.data) return false;
-        const { code, data } = res.data;
-        if (code != 0) return false;
+       
+         if(!res) return false;
+        const {code,msg,data}= res;
+        if(code !=0){
+          console.log(msg);
+          return false;
+        }
 
         const { finish, plan } = data;
         this.finishConfig = this.getDigitalNum(this.finishConfig, {
@@ -1100,9 +1116,13 @@ export default {
       });
 
       api.getStockInfo().then((res) => {
-        if (!res || !res.data) return false;
-        const { code, data } = res.data;
-        if (code != 0) return false;
+
+          if(!res) return false;
+        const {code,msg,data}= res;
+        if(code !=0){
+          console.log(msg);
+          return false;
+        }
         this.stockDataConfig = this.getDigitalNum(this.stockDataConfig, {
           number: [data],
         });
@@ -1111,9 +1131,16 @@ export default {
       // 在充电池数
       const { workshopCode } = this;
       api.getChargingCount({ workshopCode, days: 1 }).then((res) => {
-        if (!res || !res.data) return false;
-        const { success, payload } = res.data;
-        if (!success) return false;
+        
+          if(!res) return false;
+          const {success,message,payload} = res;
+          if(!success){
+            console.log(message);
+            return false;
+          }
+       
+
+      
         let temp = 0;
         payload.map((item) => {
           temp += item.count;
@@ -1144,9 +1171,16 @@ export default {
 
       // 开机数量
       api.getLaunchCount({ workshopCode, days: 1 }).then((res) => {
-        if (!res || !res.data) return false;
-        const { success, payload } = res.data;
-        if (!success) return false;
+       
+           if(!res) return false;
+          const {success,message,payload} = res;
+          if(!success){
+            console.log(message);
+            return false;
+          }
+
+   
+       
         let temp = 0;
         payload.map((item) => {
           temp += item.count;
@@ -1175,9 +1209,13 @@ export default {
       });
 
       api.getFinishCount({ workshopCode, days: 1 }).then((res) => {
-        if (!res || !res.data) return false;
-        const { success, payload } = res.data;
-        if (!success) return false;
+
+           if(!res) return false;
+          const {success,message,payload} = res;
+          if(!success){
+            console.log(message);
+            return false;
+          }
         let temp = 0;
         payload.map((item) => {
           temp += item.count;
@@ -1204,9 +1242,13 @@ export default {
       });
 
       api.getFinishCount({ workshopCode, days: 2 }).then((res) => {
-        if (!res || !res.data) return false;
-        const { success, payload } = res.data;
-        if (!success) return false;
+     
+           if(!res) return false;
+          const {success,message,payload} = res;
+          if(!success){
+            console.log(message);
+            return false;
+          }
         let temp = 0;
         payload.map((item) => {
           temp += item.count;
@@ -1232,9 +1274,13 @@ export default {
         };
       });
       api.getFinishCount({ workshopCode, days: 0 }).then((res) => {
-        if (!res || !res.data) return false;
-        const { success, payload } = res.data;
-        if (!success) return false;
+  
+           if(!res) return false;
+          const {success,message,payload} = res;
+          if(!success){
+            console.log(message);
+            return false;
+          }
 
         let temp = 0;
         payload.map((item) => {
@@ -1262,9 +1308,13 @@ export default {
       });
 
       api.getUtilizationRate({ workshopCode }).then((res) => {
-        if (!res || !res.data) return false;
-        const { success, payload } = res.data;
-        if (!success) return false;
+
+           if(!res) return false;
+          const {success,message,payload} = res;
+          if(!success){
+            console.log(message);
+            return false;
+          }
         this.utilizationObj = payload;
         const { count, totalCount } = payload;
 

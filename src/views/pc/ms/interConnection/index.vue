@@ -110,7 +110,7 @@
 
 <script>
 
-import digitalFlop from "@/components/before/digitalFlop";
+import digitalFlop from "@/components/interConnection/digitalFlop";
 import api from "@/api";
 
 export default {
@@ -133,9 +133,13 @@ export default {
     createData() {
       const _this = this;
       api.getBaseMap().then((res) => {
-        const { data = "" } = res;
-        if (!data) return false;
-        const { chargeDischarge, machineStartup, castWeldOutput } = data.data;
+        if(!res) return false;
+        const {code,msg,data} = res;
+        if(code !=0){
+          console.log(msg);
+          return false;
+        }
+        const { chargeDischarge, machineStartup, castWeldOutput } = data;
         _this.chargeDischarge = chargeDischarge;
         (chargeDischarge || []).map((item) => {
           item.config1 = {
@@ -178,9 +182,14 @@ export default {
         });
       });
 
-      api.getMsOutput().then((data) => {
-        if (!data || !data.data) return false;
-        const { devOutput, modelOutput } = data.data.data;
+      api.getMsOutput().then((res) => {
+         if(!res) return false;
+        const {code,msg,data} = res;
+        if(code !=0){
+          console.log(msg);
+          return false;
+        }
+        const { devOutput, modelOutput } = data;
         _this.devOutput = devOutput;
         _this.modelOutput = modelOutput;
         const keys = Object.keys(modelOutput),

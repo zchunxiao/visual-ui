@@ -30,11 +30,14 @@ export default {
   methods: {
     createData() {
       api.getBpOutput().then((res) => {
-        const { data = "" } = res;
-        if (!data) return false;
+        if (!res) return false;
+        const { code, msg, data } = res;
+        if (code != 0) {
+          console.log(msg);
+          return false;
+        }
 
-        const _this = this;
-        _this.data = data.data;
+        this.data = data;
       });
     },
   },

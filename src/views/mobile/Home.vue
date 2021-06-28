@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <p class="demo">白菜</p>
-    <img alt="Vue logo" src="../../assets/logo.png">
-  
+    <div v-for="(data, index) in routersList" :key="index">
+      <router-link :to="data.path">{{ data.name }}</router-link>
+    </div>
   </div>
 </template>
 
@@ -11,14 +11,31 @@
 
 export default {
   name: 'Home',
+  data() {
+    return {
+      routersList: [],
+    };
+  },
   components: {
 
+  },
+  mounted(){
+     const {
+      $router: { options = {} },
+    } = this;
+    const { routes } = options;
+    console.log("aaa:",routes)
+    this.routersList = routes.slice(3);
   }
 }
 </script>
 <style scoped>
-  .demo{
-    width:200px;
-    height: 100PX;
-  }
+ .home {
+  background: #ccc;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding:20px;
+  box-sizing: border-box;
+}
 </style>

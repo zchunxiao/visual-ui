@@ -75,7 +75,7 @@
 
 <script>
 
-import roseChart from "@/components/before/roseChart";
+import roseChart from "@/components/glue/roseChart.vue";
 import api from "@/api";
 
 export default {
@@ -104,9 +104,15 @@ export default {
   methods: {
     createData() {
       const _this = this;
-      api.getJnOutput().then((data) => {
-        if (!data || !data.data) return false;
-        const { devOutput, modelOutput } = data.data.data;
+      api.getJnOutput().then((res) => {
+          if(!res)return false;
+        const {code,msg,data}= res;
+        if(code!=0){
+          console.log(msg);
+          return false;
+        }
+  
+        const { devOutput, modelOutput } = data;
         _this.devOutput = devOutput;
         _this.modelOutput = modelOutput;
         const keys = Object.keys(modelOutput),
@@ -119,10 +125,15 @@ export default {
         });
         _this.modelOutputList = list;
       });
-      api.getJnStatus().then((data) => {
-        if (!data || !data.data) return false;
+      api.getJnStatus().then((res) => {
+        if(!res)return false;
+        const {code,msg,data}= res;
+        if(code!=0){
+          console.log(msg);
+          return false;
+        }
 
-        const { onlineDev, allDev } = data.data.data;
+        const { onlineDev, allDev } = data;
 
         _this.pieOption = {
           data: [
@@ -168,14 +179,14 @@ export default {
   }
   .data-list-content {
     margin: 0 20px;
-   
+    height:calc(100% - 60px);
     display: flex;
     justify-content: space-around;
     // align-items: center;
     .data-list {
       // width:30%;
       flex: 1;
-      height: 90%;
+      height: 100%;
     }
   }
   .data-top-info {

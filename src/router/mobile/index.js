@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/mobile/Home.vue'
-
+import jnRoutes from "./jn.js"
 Vue.use(VueRouter)
 const NotFound = resolve => require(['@/404'], resolve)
 
@@ -35,13 +35,13 @@ const router = new VueRouter({
   mode: 'history',
   // base: process.env.BASE_URL,
   base: "/mobile/",
-  routes
+  routes:[...routes,...jnRoutes]
 })
 
 
 // 前置导航
 router.beforeEach((to, from, next) => {
-  console.log("前置导航:", to, from, next)
+  // console.log("前置导航:", to, from, next)
   /* 路由发生变化修改页面title */
   if (to.meta.title && document) {
     document.title = to.meta.title

@@ -4,10 +4,10 @@ import { serialize } from '@/util/util'
 import NProgress from 'nprogress' // progress bar
 import errorCode from '@/const/errorCode'
 
-// import { Message } from 'element-ui'
+import { Toast} from 'mint-ui'
 import 'nprogress/nprogress.css'
 import qs from 'qs'
-console.log(process,process.env)
+
 
 
 // 返回其他状态码
@@ -15,7 +15,12 @@ axios.defaults.validateStatus = function (status) {
   return status >= 200 && status <= 500 // 默认的
 }
 // 根据环境设置baseUrl
-// axios.defaults.baseURL= process.env.NODE_ENV == 'development'?  '/' :"http://192.168.33.86:8001"
+if(window.pageType =='pc'){
+  axios.defaults.baseURL= process.env.NODE_ENV == 'development'?  '/' :"http://192.168.33.86:8001"
+}else{
+  axios.defaults.baseURL= process.env.NODE_ENV == 'development'?  '/' :"http://192.168.33.186:8082"
+}
+
 
 // 设置请求超时时间
 axios.defaults.timeout = 30000
@@ -58,15 +63,12 @@ axios.interceptors.response.use(res => {
 
 
   if (status !== 200 || res.data.code === 1) {
-    // Message({
-    //   message: message,
-    //   type: 'error'
-    // })
-    console.log("11!:",message);
+    Toast({
+      message
+    })
     return Promise.reject(new Error(message))
   }
-
-  return res
+  return res.data
 }, error => {
   NProgress.done()
   return Promise.reject(new Error(error))

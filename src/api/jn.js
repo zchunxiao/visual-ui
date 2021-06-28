@@ -84,6 +84,22 @@ const getJnStatus=()=> {
 }
 
 
+// 移动端
+// 晶能充电面板
+const getCharge =()=>{
+    return request.get(`/bi/jn/charge/output`)
+}
+// 晶能装配产量看板
+const getOutput =(params)=>{
+    return request.get(`/bi/jn/assembly/output`,{params})
+}
+
+//当天开工确认人数和基地下产线编制人数
+const getWorkList=(params)=>{
+    return request.get(`/client/start/work/getlist`,{params})
+}
+
+
 
 export default {
     fetchJnDayNum,
@@ -95,7 +111,12 @@ export default {
     fetchJnListAlarmInfo,
     getJnBaseMap,
     getJnOutput,
-    getJnStatus
+    getJnStatus,
+
+    // 移动端
+    getCharge,
+    getOutput,
+    getWorkList
 }
 
 

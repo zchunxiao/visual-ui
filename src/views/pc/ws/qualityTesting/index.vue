@@ -8,21 +8,21 @@
           <div class="left__top">
             <dv-border-box-13>
               <div class="pc-ws-qt__title">连铸连轧在线检测</div>
-              <table-scroll :config="lzlzconfig" />
+              <pc-table :config="lzlzconfig" />
             </dv-border-box-13>
           </div>
 
           <div class="left__center">
             <dv-border-box-13>
               <div class="pc-ws-qt__title">合膏工艺控制</div>
-              <table-scroll :config="hgconfig" />
+              <pc-table :config="hgconfig" />
             </dv-border-box-13>
           </div>
 
           <div class="left__bottom">
             <dv-border-box-13>
               <div class="pc-ws-qt__title">连涂连分在线监测</div>
-              <table-scroll :config="ltconfig" />
+              <pc-table :config="ltconfig" />
             </dv-border-box-13>
           </div>
         </div>
@@ -110,10 +110,11 @@
 
 <script>
 
-import tableScroll from "@/components/tableScroll";
-import lineChart from "@/components/lineChart";
-import digitalFlop from "@/components/digitalFlop";
-import scrollRanking from "@/components/scrollRanking";
+
+import lineChart from "./components/lineChart";
+import digitalFlop from "./components/digitalFlop";
+import scrollRanking from "./components/scrollRanking";
+import pcTable from "./components/pcTable";
 import api from "@/api";
 
 export default {
@@ -469,19 +470,16 @@ export default {
   },
 
   components: {
-
-    tableScroll,
     lineChart,
     digitalFlop,
     scrollRanking,
+    pcTable
   },
 
   computed: {},
 
   created() {
-    if (document) {
-      document.title = "吴山未来工厂质量管理平台";
-    }
+ 
   },
 
   mounted() {
@@ -495,9 +493,14 @@ export default {
   methods: {
     createData() {
       api.wsQuality().then((res) => {
-        if (!res || !res.data) return false;
-        const { success, payload } = res.data;
-        if (!success) return false;
+
+        if(!res) return false;
+        const {success,message,payload}= res;
+        if(!success){
+          console.log(message)
+          return false;
+        }
+
         const {
           lzlzQmDetailDtoList = [],
           hgQmDetailDtoList = [],

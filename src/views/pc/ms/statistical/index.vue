@@ -65,10 +65,17 @@ export default {
   methods: {
     createData() {
       // 回路状态
-      api.fetchLoopState().then((response) => {
-        const { data = "" } = response;
-        if (!data) return false;
-        const { DISCHARGE, ALARM, TIME_OUT, CHARGING, IDLE } = data.data;
+      api.fetchLoopState().then((res) => {
+   
+        if(!res) return false;
+        const {code,msg,data} = res;
+        if(code !=0){
+          console.log(msg);
+          return false;
+        }
+      
+    
+        const { DISCHARGE, ALARM, TIME_OUT, CHARGING, IDLE } = data;
 
         this.option = {
           series: [
@@ -106,14 +113,19 @@ export default {
 
       // 最近七天能耗趋势
       api.fetchTrend().then((res) => {
-        const { data = "" } = res;
-        if (!data) return false;
+        if(!res) return false;
+        const {code,msg,data} = res;
+        if(code !=0){
+          console.log(msg);
+          return false;
+        }
+     
 
-        const list = data.data.map((item) => {
+        const list = data.map((item) => {
           return item.time;
         });
 
-        const energyConsumption = data.data.map((item) => {
+        const energyConsumption = data.map((item) => {
           return item.energyConsumption;
         });
 
@@ -190,13 +202,19 @@ export default {
         };
       });
       //机房利用率
-      api.fetchRealTimeAvailability().then((response) => {
-        const { data = "" } = response;
-        if (!data) return false;
-        this.list = data.data;
-        for (let i = 0, len = data.data.length; i < len; i++) {
+      api.fetchRealTimeAvailability().then((res) => {
+
+        if(!res)return false;
+        const {msg,code,data}= res;
+        if(code!=0){
+          console.log(msg);
+          return false;
+        }
+   
+        this.list = data
+        for (let i = 0, len = data.length; i < len; i++) {
           this.list[i].config = {
-            data: [(data.data[i].availability * 100).toFixed(1)],
+            data: [(data[i].availability * 100).toFixed(1)],
             shape: "round",
             waveHeight: 25,
             waveNum: 2,
@@ -205,16 +223,22 @@ export default {
       });
 
        const _this  = this;
-      api.fetchUtilRate().then(response=>{
-        const {data=""} =  response;
-        if(!data) return false;
+      api.fetchUtilRate().then(res=>{
+
+        if(!res) return false;
+        const {code,msg,data}= res;
+        if(code!=0){
+          console.log(msg)
+          return false;
+        }
+  
 
           // 利用率
-        var list =  (data.data || []).map(item=>{
+        var list =  (data || []).map(item=>{
           return +_this.formatNum(item.utilization)
         })
           // 产量
-        var list1 =  (data.data || []).map(item=>{
+        var list1 =  (data || []).map(item=>{
           return +_this.formatNum(item.output)
         })
      
@@ -366,12 +390,18 @@ export default {
       })
 
       // 异常列表
-      api.fetchListAlarmInfo().then((response) => {
-        const { data = "" } = response;
-        if (!data) return false;
+      api.fetchListAlarmInfo().then((res) => {
+        console.log("00000:",res)
+        if(!res) return false;
+        const {data,code,msg}= res;
+        if(code!=0){
+          console.log(msg);
+          return false;
+        }
+ 
         this.warnList = {
           header: ["机房编号", "电脑编号", "回路编号"],
-          data: data.data,
+          data: data,
           index: true,
           columnWidth: [50, 100, 200, 100],
           align: ["center"],
@@ -387,9 +417,14 @@ export default {
     async getData() {
       const _this = this;
       await api.fetchDayNum().then((res) => {
-        const { data = "" } = res;
-        if (!data) return false;
-        const tempList = (data.data || []).map((item) => {
+
+        if(!res) return false;
+        const {code,msg,data}= res;
+        if(code !=0){
+          console.log(msg);
+          return false;
+        }
+        const tempList = (data || []).map((item) => {
           return {
             name: `<span class="data-name">${item.room}</span>`,
             value: item.output,
@@ -401,9 +436,15 @@ export default {
         };
       });
       await api.fetchMonthNum().then((res) => {
-        const { data = "" } = res;
-        if (!data) return false;
-        const tempList = (data.data || []).map((item) => {
+                if(!res) return false;
+        const {code,msg,data}= res;
+        if(code !=0){
+          console.log(msg);
+          return false;
+        }
+
+    
+        const tempList = (data || []).map((item) => {
           return {
             name: `<span class="data-name">${item.room}</span>`,
             value: item.output,

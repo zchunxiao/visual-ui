@@ -33,22 +33,37 @@ module.exports= {
         disableHostCheck: true,
         port: 8080,
         proxy: {
+          '/api': {
+            pathRewrite: {
+              '^/api': '/'
+            },
+            target: 'http://192.168.33.176:9999',
+            ws: false, // 需要websocket 开启
+            changeOrigin: true,
+          
+          },
+           '/test': {
+            pathRewrite: {
+              '^/test': '/'
+            },
+            target: 'http://192.168.34.216:8090',
+            ws: false, // 需要websocket 开启
+            changeOrigin: true,
+           
+          },
+
           '/bi': {
             target: url,
             ws: false, // 需要websocket 开启
-            changeOrigin: true,
-            // pathRewrite: {
-            //   '^/': '/'
-            // }
+            changeOrigin: true
           },
           '/client': {
             target: clientUrl,
             ws: false, // 需要websocket 开启
-            changeOrigin: true,
-            // pathRewrite: {
-            //   '^/': '/client'
-            // }
-          }
+            changeOrigin: true
+          },
+       
+         
     
           // 3.5 以后不需要再配置
         }

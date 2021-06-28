@@ -14,7 +14,7 @@
 
 <script>
 
-import digitalFlopBp from "@/components/before/digitalFlopBp";
+import digitalFlopBp from "./components/digitalFlopBp";
 
 export default {
   name: "bpInterConnection",
