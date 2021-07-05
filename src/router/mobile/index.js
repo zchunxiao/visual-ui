@@ -41,7 +41,6 @@ const router = new VueRouter({
 
 // 前置导航
 router.beforeEach((to, from, next) => {
-  // console.log("前置导航:", to, from, next)
   /* 路由发生变化修改页面title */
   if (to.meta.title && document) {
     document.title = to.meta.title

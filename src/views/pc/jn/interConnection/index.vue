@@ -131,14 +131,12 @@ export default {
     createData() {
       const _this = this;
       api.getJnBaseMap().then((res) => {
-     
-        const {code,msg,data}= res;
-        if(code!=0){
+        const { code, msg, data } = res;
+        if (code != 0) {
           console.log(msg);
           return false;
         }
 
- 
         const { chargeDischarge, machineStartup, castWeldOutput } = data;
         _this.chargeDischarge = chargeDischarge;
         (chargeDischarge || []).map((item) => {
@@ -183,13 +181,13 @@ export default {
       });
 
       api.getMsOutput().then((res) => {
-          if(!res)return false;
-        const {code,msg,data}= res;
-        if(code!=0){
+        if (!res) return false;
+        const { code, msg, data } = res;
+        if (code != 0) {
           console.log(msg);
           return false;
         }
-        const { devOutput, modelOutput } =data;
+        const { devOutput, modelOutput } = data;
         _this.devOutput = devOutput;
         _this.modelOutput = modelOutput;
         const keys = Object.keys(modelOutput),

@@ -74,7 +74,6 @@
 </template>
 
 <script>
-
 import roseChart from "@/components/glue/roseChart.vue";
 import api from "@/api";
 
@@ -105,13 +104,13 @@ export default {
     createData() {
       const _this = this;
       api.getJnOutput().then((res) => {
-          if(!res)return false;
-        const {code,msg,data}= res;
-        if(code!=0){
+        if (!res) return false;
+        const { code, msg, data } = res;
+        if (code != 0) {
           console.log(msg);
           return false;
         }
-  
+
         const { devOutput, modelOutput } = data;
         _this.devOutput = devOutput;
         _this.modelOutput = modelOutput;
@@ -126,9 +125,9 @@ export default {
         _this.modelOutputList = list;
       });
       api.getJnStatus().then((res) => {
-        if(!res)return false;
-        const {code,msg,data}= res;
-        if(code!=0){
+        if (!res) return false;
+        const { code, msg, data } = res;
+        if (code != 0) {
           console.log(msg);
           return false;
         }
@@ -179,7 +178,7 @@ export default {
   }
   .data-list-content {
     margin: 0 20px;
-    height:calc(100% - 60px);
+    height: calc(100% - 60px);
     display: flex;
     justify-content: space-around;
     // align-items: center;
@@ -205,6 +204,7 @@ export default {
     width: 100%;
     height: 100%;
     padding: 20px;
+    box-sizing: border-box;
   }
   .data-list-bottom {
     //    flex:1;

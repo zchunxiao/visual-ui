@@ -68,7 +68,7 @@ const getJnBaseMap =()=> {
 
 const getJnOutput=()=> {
     return request({
-        url: "/bi/DevDjInfo/output",
+        url: "/bi/jn/DevDjInfo/output",
         method: "get"
     })
 }
@@ -78,7 +78,7 @@ const getJnOutput=()=> {
 // 晶能点塑机状态
 const getJnStatus=()=> {
     return request({
-        url: "/bi/DevDjInfo/status",
+        url: "/bi/jn/DevDjInfo/status",
         method: "get"
     })
 }

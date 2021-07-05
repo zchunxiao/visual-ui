@@ -1,7 +1,7 @@
 <!-- 吴山点胶机 -->
 <template>
   <div id="data-view-ws">
-   <base-container>
+    <base-container>
       <top-header title="吴山点胶机实时产量看板" />
       <div class="data-content">
         <div class="data-top">
@@ -69,12 +69,11 @@
           </dv-border-box-12>
         </div>
       </div>
-   </base-container>
+    </base-container>
   </div>
 </template>
 
 <script>
-
 import roseChart from "@/components/glue/roseChart.vue";
 import api from "@/api";
 
@@ -105,9 +104,9 @@ export default {
     createData() {
       const _this = this;
       api.getWsOutput().then((res) => {
-        if(!res) return false;
-        const {code,data,msg} = res;
-        if(code !=0){
+        if (!res) return false;
+        const { code, data, msg } = res;
+        if (code != 0) {
           console.log(msg);
           return false;
         }
@@ -116,18 +115,18 @@ export default {
         _this.modelOutput = modelOutput;
         const keys = Object.keys(modelOutput),
           values = Object.values(modelOutput);
-        let list = keys.map((item, index) => {
+       
+        _this.modelOutputList =  keys.map((item, index) => {
           return {
             key: item,
             value: values[index],
           };
         });
-        _this.modelOutputList = list;
       });
       api.getWsStatus().then((res) => {
-       if(!res) return false;
-        const {code,data,msg} = res;
-        if(code !=0){
+        if (!res) return false;
+        const { code, data, msg } = res;
+        if (code != 0) {
           console.log(msg);
           return false;
         }
@@ -149,7 +148,6 @@ export default {
     },
   },
   created() {
-    document.title = "吴山点胶机实时产量看板";
   },
 };
 </script>
