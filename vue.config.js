@@ -12,7 +12,7 @@ const url = process.env.VUE_APP_URL // 代理地址
 
 module.exports = {
   // publicPath:"/",
-  publicPath: process.env.NODE_ENV == 'development' ? "/" : "/web/",
+  publicPath: process.env.NODE_ENV == 'development' ? "/" : "/tn-iip-visual-ui/",
   outputDir: "dist",
   assetsDir: "assets",
   indexPath: "index.html",
