@@ -65,7 +65,7 @@
               <div class="right__center-swiper">
                 <swiper :options="swiperOption" ref="mySwiper">
                   <swiper-slide v-for="(data, index) in banner" :key="index">
-                    <!-- <div
+                    <div
                       class="swiper-img"
                       :style="{
                         backgroundImage:
@@ -73,11 +73,11 @@
                           (index + 1) +
                           ')',
                       }"
-                    ></div> -->
-                    <div
+                    ></div>
+                    <!-- <div
                       class="swiper-img"
                      
-                    ></div>
+                    ></div> -->
                   </swiper-slide>
                 </swiper>
               </div>
@@ -670,7 +670,7 @@ export default {
       background-size: cover;
       background-repeat: no-repeat;
       border-radius: 20PX;
-      background:red;
+      // background:red;
     }
     .right__center-box {
       display: flex;
