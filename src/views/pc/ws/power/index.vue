@@ -5,8 +5,8 @@
       <top-header title="动力能源工业互联网数据驾驶舱" />
 
       <div class="power-main">
-        <div class="power-main-left" style="width:25%">
-          <div class="top" style="height:24%">
+        <div class="power-main-left" style="width: 25%">
+          <div class="top" style="height: 24%">
             <dv-border-box-13 backgroundColor="transparent">
               <div class="title">
                 <div class="title-top">
@@ -20,7 +20,7 @@
                       <div class="item-content-title">铅日耗用</div>
                       <dv-digital-flop
                         :config="qdDayQtyConfig"
-                        style="width:100%;height:50px;"
+                        style="width: 100%; height: 50px"
                       />
                       <!-- <span class="item-content-num">{{qdReportDto.qdDayQty}}吨</span> -->
                     </div>
@@ -30,7 +30,7 @@
                       <div class="item-content-title">月度累计耗用</div>
                       <dv-digital-flop
                         :config="qdMonthQtyConfig"
-                        style="width:100%;height:50px;"
+                        style="width: 100%; height: 50px"
                       />
 
                       <!-- <span class="item-content-num">{{qdReportDto.qdMonthQty}}吨</span> -->
@@ -41,7 +41,7 @@
                       <div class="item-content-title">库存量</div>
                       <dv-digital-flop
                         :config="stockDataConfig"
-                        style="width:100%;height:50px;"
+                        style="width: 100%; height: 50px"
                       />
                       <!-- <span class="item-content-num">{{stockData}}吨</span> -->
                     </div>
@@ -51,9 +51,9 @@
             </dv-border-box-13>
           </div>
 
-          <div class="top" style="height:24%">
-            <div style="height:100%;display:flex;">
-              <dv-border-box-13 style="margin-right:20px">
+          <div class="top" style="height: 24%">
+            <div style="height: 100%; display: flex">
+              <dv-border-box-13 style="margin-right: 20px">
                 <div class="title">
                   <div class="title-top">
                     球磨工序
@@ -63,19 +63,19 @@
                   <div class="item-info-qm">
                     <div class="bg more1">
                       实时产量：<span class="green">{{
-                        formatNum(qmObj.realTimeOutput)
+                        formatNum(qmObj.realTimeOutput || 0)
                       }}</span
                       >吨
                     </div>
                     <div class="bg more1">
                       铅粉库存：<span class="green">{{
-                        formatNum(qmObj.stack)
+                        formatNum(qmObj.stack || 0)
                       }}</span
                       >吨
                     </div>
                     <div class="bg more1">
                       累计产量：<span class="green">{{
-                        formatNum(qmObj.accumulateOutput)
+                        formatNum(qmObj.accumulateOutput || 0)
                       }}</span
                       >吨
                     </div>
@@ -92,24 +92,24 @@
                   <div class="item-info-qm">
                     <div class="bg more2">
                       正合膏产量：<span class="green">{{
-                        formatNum(hgReportDto.positiveWeight)
+                        formatNum(hgReportDto.positiveWeight || 0)
                       }}</span
                       >吨
                     </div>
                     <div class="bg more2">
                       负合膏产量：<span class="green">{{
-                        formatNum(hgReportDto.negativeWeight)
+                        formatNum(hgReportDto.negativeWeight || 0)
                       }}</span
                       >吨
                     </div>
                     <div class="bg more2">
                       正合膏锅数：<span class="green">{{
-                        hgReportDto.positiveQty
+                        hgReportDto.positiveQty || 0
                       }}</span>
                     </div>
                     <div class="bg more2">
                       负合膏锅数：<span class="green">{{
-                        hgReportDto.negativeQty
+                        hgReportDto.negativeQty || 0
                       }}</span>
                     </div>
                   </div>
@@ -118,7 +118,7 @@
             </div>
           </div>
 
-          <div class="top" style="height:52%">
+          <div class="top" style="height: 52%">
             <dv-border-box-13>
               <div class="title">
                 <div class="title-top">
@@ -137,7 +137,7 @@
                     </div>
                     <dv-digital-flop
                       :config="item.number"
-                      style="width:100%;height:48px;"
+                      style="width: 100%; height: 48px"
                     />
                   </div>
                 </div>
@@ -146,7 +146,7 @@
                     v-for="(data, index) in lzlzReportDto.qdData"
                     :key="index"
                     :config="data.config"
-                    style="width:49%;height:45px;margin:10px auto 0"
+                    style="width: 49%; height: 45px; margin: 10px auto 0"
                   />
                 </div>
 
@@ -165,7 +165,7 @@
                     </div>
                     <dv-digital-flop
                       :config="item.number"
-                      style="width:100%;height:48px;"
+                      style="width: 100%; height: 48px"
                     />
                   </div>
                 </div>
@@ -175,37 +175,37 @@
                     v-for="(data, index) in lzlzReportDto.wdData"
                     :key="index"
                     :config="data.config"
-                    style="width:49%;height:45px;margin:10px auto 0"
+                    style="width: 49%; height: 45px; margin: 10px auto 0"
                   />
                 </div>
               </div>
             </dv-border-box-13>
           </div>
         </div>
-        <div class="power-main-center" style="width:42%">
-          <div class="top" style="height:24%">
+        <div class="power-main-center" style="width: 42%">
+          <div class="top" style="height: 24%">
             <dv-border-box-13>
               <div class="title">
                 <div class="title-top">
                   涂片工序
                   <div class="line" />
                 </div>
-                <div class="top-info" style="padding-left:2%">
+                <div class="top-info" style="padding-left: 2%">
                   <div class="item-info1">
                     <div
                       class="item-info1-box bg"
                       v-for="(data, index) in tpReportDtoList"
                       :key="index"
-                      style="margin-top:5px;"
+                      style="margin-top: 5px"
                     >
                       <div class="item-content">
-                        <div class="item-content-title" style="font-size:16px;">
+                        <div class="item-content-title" style="font-size: 16px">
                           {{ data.name }}
                         </div>
-                        <div style="height:40%">
+                        <div style="height: 40%">
                           <dv-digital-flop
                             :config="data.number"
-                            style="width:100%;height:42px;"
+                            style="width: 100%; height: 42px"
                           />
                         </div>
                       </div>
@@ -219,29 +219,29 @@
           </div>
 
           <!-- 固化 -->
-          <div class="top" style="height:25%">
+          <div class="top" style="height: 25%">
             <dv-border-box-13>
               <div class="title">
                 <div class="title-top">
                   固化
                   <div class="line" />
                 </div>
-                <div class="top-info" style="padding-left:2%">
+                <div class="top-info" style="padding-left: 2%">
                   <div class="item-info1">
                     <div
                       class="item-info1-box bg"
                       v-for="(data, index) in solidifyRecordQtyVoList"
                       :key="index"
-                      style="margin-top:5px;"
+                      style="margin-top: 5px"
                     >
                       <div class="item-content">
-                        <div class="item-content-title" style="font-size:18px;">
+                        <div class="item-content-title" style="font-size: 18px">
                           {{ data.name }}
                         </div>
-                        <div style="height:40%">
+                        <div style="height: 40%">
                           <dv-digital-flop
                             :config="data.number"
-                            style="width:100%;height:42px;"
+                            style="width: 100%; height: 42px"
                           />
                         </div>
                       </div>
@@ -252,7 +252,7 @@
             </dv-border-box-13>
           </div>
 
-          <div class="bottom" style="height:51%">
+          <div class="bottom" style="height: 51%">
             <dv-border-box-13>
               <div class="title">
                 <div class="title-top">
@@ -260,7 +260,7 @@
                   <div class="line" />
                 </div>
 
-                <div style="font-size:18px;margin:0 20px">
+                <div style="font-size: 18px; margin: 0 20px">
                   <div class="bottom-data">
                     <div class="model-title">
                       <div class="bg more">
@@ -268,7 +268,7 @@
                         <div>
                           <dv-digital-flop
                             :config="xcConfig"
-                            style="width:100%;height:28px;"
+                            style="width: 100%; height: 28px"
                           />
                         </div>
                       </div>
@@ -279,7 +279,7 @@
                         <div>
                           <dv-digital-flop
                             :config="zhConfig"
-                            style="width:100%;height:28px;"
+                            style="width: 100%; height: 28px"
                           />
                         </div>
                       </div>
@@ -291,7 +291,7 @@
                         <div>
                           <dv-digital-flop
                             :config="fzConfig"
-                            style="width:100%;height:28px;"
+                            style="width: 100%; height: 28px"
                           />
                         </div>
                       </div>
@@ -301,54 +301,54 @@
                         入库
                         <dv-digital-flop
                           :config="rkConfig"
-                          style="width:100%;height:28px;"
+                          style="width: 100%; height: 28px"
                         />
                       </div>
                     </div>
 
-                    <div class="model-title" style="margin:5px 0 0 0">
+                    <div class="model-title" style="margin: 5px 0 0 0">
                       <div class="bg more">
                         占用储位数
                         <div>
                           <dv-digital-flop
                             :config="hadConfig"
-                            style="width:100%;height:28px;"
+                            style="width: 100%; height: 28px"
                           />
                         </div>
                       </div>
                     </div>
 
-                    <div class="model-title" style="margin:5px 0 0 0">
+                    <div class="model-title" style="margin: 5px 0 0 0">
                       <div class="bg more">
                         总储位数
                         <div>
                           <dv-digital-flop
                             :config="locationConfig"
-                            style="width:100%;height:28px;"
+                            style="width: 100%; height: 28px"
                           />
                         </div>
                       </div>
                     </div>
 
-                    <div class="model-title" style="margin:5px 0 0 0">
+                    <div class="model-title" style="margin: 5px 0 0 0">
                       <div class="bg more">
                         储位利用率
                         <div>
                           <dv-digital-flop
                             :config="ghRateConfig"
-                            style="width:100%;height:28px;"
+                            style="width: 100%; height: 28px"
                           />
                         </div>
                       </div>
                     </div>
 
-                    <div class="model-title" style="margin:5px 0 0 0;">
+                    <div class="model-title" style="margin: 5px 0 0 0">
                       <div class="bg more">
                         平面库库存
                         <div>
                           <dv-digital-flop
                             :config="totalConfig"
-                            style="width:100%;height:28px;"
+                            style="width: 100%; height: 28px"
                           />
                         </div>
                       </div>
@@ -356,30 +356,30 @@
                   </div>
                 </div>
 
-                <div class="bottom-scroll" style="margin:0 20px">
+                <div class="bottom-scroll" style="margin: 0 20px">
                   <div class="bottom-scroll-data">
-                    <div style="width:25%;margin-right:10px;">
+                    <div style="width: 25%; margin-right: 10px">
                       <dv-scroll-board
                         :config="briefTableConfig"
-                        style="width:100%;height:100%;"
+                        style="width: 100%; height: 100%"
                       />
                     </div>
-                    <div style="width:30%;margin-right:10px;">
+                    <div style="width: 30%; margin-right: 10px">
                       <dv-scroll-board
                         :config="armTableConfig"
-                        style="width:100%;height:100%;"
+                        style="width: 100%; height: 100%"
                       />
                     </div>
-                    <div style="width:45%;">
+                    <div style="width: 45%">
                       <dv-scroll-board
                         :config="wareTableConfig"
-                        style="width:100%;height:100%;"
+                        style="width: 100%; height: 100%"
                       />
                     </div>
                   </div>
                 </div>
 
-                <div style="font-size:18px;margin:0 20px">
+                <div style="font-size: 18px; margin: 0 20px">
                   <div class="bottom-data">
                     <div
                       v-for="(item, index) in modelList"
@@ -392,7 +392,7 @@
                         <div>
                           <dv-digital-flop
                             :config="item.number"
-                            style="width:100%;height:28px;"
+                            style="width: 100%; height: 28px"
                           />
                         </div>
                       </div>
@@ -404,8 +404,8 @@
           </div>
         </div>
 
-        <div class="power-main-right" style="width:30%">
-          <div class="top" style="height:23%;">
+        <div class="power-main-right" style="width: 30%">
+          <div class="top" style="height: 23%">
             <dv-border-box-13>
               <div class="title">
                 <div class="title-top">
@@ -415,38 +415,38 @@
 
                 <div class="item-machine">
                   <div class="item-machine-box bg item-machine-box--small">
-                    <div class="item-machine-text ">开工人数</div>
+                    <div class="item-machine-text">开工人数</div>
                     <dv-digital-flop
                       :config="cdEmploymentCountConfig"
-                      style="width:100%;height:48px;"
+                      style="width: 100%; height: 48px"
                     />
                   </div>
                   <div class="item-machine-box bg item-machine-box--small">
                     <div class="item-machine-text">今日加酸总量</div>
                     <dv-digital-flop
                       :config="cdPerQtyConfig"
-                      style="width:100%;height:48px;"
+                      style="width: 100%; height: 48px"
                     />
                   </div>
                   <div class="item-machine-box bg item-machine-box--small">
                     <div class="item-machine-text">人均产出</div>
                     <dv-digital-flop
                       :config="cdQty"
-                      style="width:100%;height:48px;"
+                      style="width: 100%; height: 48px"
                     />
                   </div>
                 </div>
                 <div class="rate-box">
                   <dv-percent-pond
                     :config="cdRateConfig"
-                    style="width:80%;height:45px;margin:10px auto 0"
+                    style="width: 80%; height: 45px; margin: 10px auto 0"
                   />
                 </div>
               </div>
             </dv-border-box-13>
           </div>
 
-          <div class="top" style="height:54%;">
+          <div class="top" style="height: 54%">
             <dv-border-box-13>
               <div class="title">
                 <div class="title-top">
@@ -460,21 +460,21 @@
                       <div class="charge-box__title">总架数</div>
                       <dv-digital-flop
                         :config="zjsConfig"
-                        style="width:100%;height:40px;"
+                        style="width: 100%; height: 40px"
                       />
                     </div>
                     <div class="charge-box__card--small-top bg">
                       <div class="charge-box__title">在用架数</div>
                       <dv-digital-flop
                         :config="zyjsConfig"
-                        style="width:100%;height:40px;"
+                        style="width: 100%; height: 40px"
                       />
                     </div>
                     <div class="charge-box__card--small-top bg">
                       <div class="charge-box__title">利用率</div>
                       <dv-digital-flop
                         :config="lylConfig"
-                        style="width:100%;height:40px;"
+                        style="width: 100%; height: 40px"
                       />
                     </div>
                   </div>
@@ -484,14 +484,14 @@
                         <div class="charge-box__title">当日开机数</div>
                         <dv-digital-flop
                           :config="launchCountConfig"
-                          style="width:100%;height:40px;"
+                          style="width: 100%; height: 40px"
                         />
                       </div>
                       <div class="charge-box__card bg">
                         <div class="charge-box__title">在充(总量)</div>
                         <dv-digital-flop
                           :config="chargingCountConfig"
-                          style="width:100%;height:40px;"
+                          style="width: 100%; height: 40px"
                         />
                       </div>
                     </div>
@@ -500,14 +500,14 @@
                     <div class="charge-box__table-item">
                       <dv-scroll-board
                         :config="launchTableConfig"
-                        style="width:100%;height:100%;"
+                        style="width: 100%; height: 100%"
                       />
                     </div>
 
                     <div class="charge-box__table-item">
                       <dv-scroll-board
                         :config="chargingTableConfig"
-                        style="width:100%;height:100%;"
+                        style="width: 100%; height: 100%"
                       />
                     </div>
                     <!-- <div class="charge-box__table-item">
@@ -519,21 +519,21 @@
                       <div class="charge-box__title">当天下架量</div>
                       <dv-digital-flop
                         :config="finishCountConfig1"
-                        style="width:100%;height:50px;"
+                        style="width: 100%; height: 50px"
                       />
                     </div>
                     <div class="charge-box__card--small bg">
                       <div class="charge-box__title">昨天下架量</div>
                       <dv-digital-flop
                         :config="finishCountConfig2"
-                        style="width:100%;height:50px;"
+                        style="width: 100%; height: 50px"
                       />
                     </div>
                     <div class="charge-box__card--small bg">
                       <div class="charge-box__title">前天下架量</div>
                       <dv-digital-flop
                         :config="finishCountConfig3"
-                        style="width:100%;height:50px;"
+                        style="width: 100%; height: 50px"
                       />
                     </div>
                   </div>
@@ -541,20 +541,20 @@
                     <div class="charge-box__table-item--three">
                       <dv-scroll-board
                         :config="finishTableConfig1"
-                        style="width:100%;height:100%;"
+                        style="width: 100%; height: 100%"
                       />
                     </div>
 
                     <div class="charge-box__table-item--three">
                       <dv-scroll-board
                         :config="finishTableConfig2"
-                        style="width:100%;height:100%;"
+                        style="width: 100%; height: 100%"
                       />
                     </div>
                     <div class="charge-box__table-item--three">
                       <dv-scroll-board
                         :config="finishTableConfig3"
-                        style="width:100%;height:100%;"
+                        style="width: 100%; height: 100%"
                       />
                     </div>
                   </div>
@@ -562,7 +562,7 @@
               </div>
             </dv-border-box-13>
           </div>
-          <div class="top" style="height:23%">
+          <div class="top" style="height: 23%">
             <dv-border-box-13>
               <div class="title">
                 <div class="title-top">
@@ -575,14 +575,14 @@
                     <span>待打码数</span>
                     <dv-digital-flop
                       :config="planConfig"
-                      style="width:100%;height:50px;"
+                      style="width: 100%; height: 50px"
                     />
                   </div>
                   <div class="top-text bg">
                     <span>实时打码</span>
                     <dv-digital-flop
                       :config="finishConfig"
-                      style="width:100%;height:50px;"
+                      style="width: 100%; height: 50px"
                     />
                   </div>
                   <div class="top-text bg">
@@ -590,14 +590,14 @@
 
                     <dv-digital-flop
                       :config="unShippedConfig"
-                      style="width:100%;height:50px;"
+                      style="width: 100%; height: 50px"
                     />
                   </div>
                   <div class="top-text bg">
                     <span>已提货</span>
                     <dv-digital-flop
                       :config="shippedConfig"
-                      style="width:100%;height:50px;"
+                      style="width: 100%; height: 50px"
                     />
                   </div>
                 </div>
@@ -611,7 +611,6 @@
 </template>
 
 <script>
-
 import api from "@/api";
 
 export default {
@@ -623,11 +622,13 @@ export default {
           {
             number: {
               number: [0],
+              content: "{nt}KG",
             },
           },
           {
             number: {
               number: [0],
+              content: "{nt}KG",
             },
           },
         ],
@@ -635,11 +636,13 @@ export default {
           {
             number: {
               number: [0],
+              content: "{nt}M",
             },
           },
           {
             number: {
               number: [0],
+              content: "{nt}M",
             },
           },
         ],
@@ -809,9 +812,7 @@ export default {
     };
   },
 
-  components: {
-
-  },
+  components: {},
 
   computed: {},
 
@@ -829,23 +830,22 @@ export default {
   },
   methods: {
     createData() {
-
       api.getPower().then((res) => {
 
-        if(!res) return false;
-        const {code,msg,data}= res;
-        if(code !=0){
+        if (!res || !res.data) return false;
+        const { code, msg, data={} } = res;
+        if (code != 0) {
           console.log(msg);
           return false;
         }
         const {
-          bzReportDto,
-          lzlzReportDto,
-          qdReportDto,
-          tpReportDto,
-          hgReportDto,
-          solidifyRecordQtyVo,
-          wareLocationSumaryDto,
+          bzReportDto = {},
+          lzlzReportDto = {},
+          qdReportDto = {},
+          tpReportDto = {},
+          hgReportDto = {},
+          solidifyRecordQtyVo = {},
+          wareLocationSumaryDto = {},
           cdReportDto = {},
         } = data;
 
@@ -947,12 +947,14 @@ export default {
         lzlzReportDto.qdData.map((data, index) => {
           this.lzlzReportDto.qdData[index].number = {
             number: [data.qty],
+            content: "{nt}KG",
           };
         });
 
         lzlzReportDto.wdData.map((data, index) => {
           this.lzlzReportDto.wdData[index].number = {
             number: [data.qty],
+            content: "{nt}M",
           };
         });
 
@@ -1015,9 +1017,9 @@ export default {
 
       // 球磨
       api.getQmOutput().then((res) => {
-         if(!res) return false;
-        const {code,msg,data}= res;
-        if(code !=0){
+        if (!res) return false;
+        const { code, msg, data } = res;
+        if (code != 0) {
           console.log(msg);
           return false;
         }
@@ -1026,9 +1028,9 @@ export default {
 
       // 机械手臂
       api.getArmOutput().then((res) => {
-      if(!res) return false;
-        const {code,msg,data}= res;
-        if(code !=0){
+        if (!res) return false;
+        const { code, msg, data } = res;
+        if (code != 0) {
           console.log(msg);
           return false;
         }
@@ -1058,9 +1060,9 @@ export default {
 
       // 封装
       api.getBriefOutput().then((res) => {
-       if(!res) return false;
-        const {code,msg,data}= res;
-        if(code !=0){
+        if (!res) return false;
+        const { code, msg, data } = res;
+        if (code != 0) {
           console.log(msg);
           return false;
         }
@@ -1098,10 +1100,9 @@ export default {
 
       // 打码
       api.getCode().then((res) => {
-       
-         if(!res) return false;
-        const {code,msg,data}= res;
-        if(code !=0){
+        if (!res) return false;
+        const { code, msg, data } = res;
+        if (code != 0) {
           console.log(msg);
           return false;
         }
@@ -1116,10 +1117,9 @@ export default {
       });
 
       api.getStockInfo().then((res) => {
-
-          if(!res) return false;
-        const {code,msg,data}= res;
-        if(code !=0){
+        if (!res) return false;
+        const { code, msg, data } = res;
+        if (code != 0) {
           console.log(msg);
           return false;
         }
@@ -1131,16 +1131,13 @@ export default {
       // 在充电池数
       const { workshopCode } = this;
       api.getChargingCount({ workshopCode, days: 1 }).then((res) => {
-        
-          if(!res) return false;
-          const {success,message,payload} = res;
-          if(!success){
-            console.log(message);
-            return false;
-          }
-       
+        if (!res) return false;
+        const { success, message, payload } = res;
+        if (!success) {
+          console.log(message);
+          return false;
+        }
 
-      
         let temp = 0;
         payload.map((item) => {
           temp += item.count;
@@ -1171,16 +1168,13 @@ export default {
 
       // 开机数量
       api.getLaunchCount({ workshopCode, days: 1 }).then((res) => {
-       
-           if(!res) return false;
-          const {success,message,payload} = res;
-          if(!success){
-            console.log(message);
-            return false;
-          }
+        if (!res) return false;
+        const { success, message, payload } = res;
+        if (!success) {
+          console.log(message);
+          return false;
+        }
 
-   
-       
         let temp = 0;
         payload.map((item) => {
           temp += item.count;
@@ -1209,13 +1203,12 @@ export default {
       });
 
       api.getFinishCount({ workshopCode, days: 1 }).then((res) => {
-
-           if(!res) return false;
-          const {success,message,payload} = res;
-          if(!success){
-            console.log(message);
-            return false;
-          }
+        if (!res) return false;
+        const { success, message, payload } = res;
+        if (!success) {
+          console.log(message);
+          return false;
+        }
         let temp = 0;
         payload.map((item) => {
           temp += item.count;
@@ -1242,13 +1235,12 @@ export default {
       });
 
       api.getFinishCount({ workshopCode, days: 2 }).then((res) => {
-     
-           if(!res) return false;
-          const {success,message,payload} = res;
-          if(!success){
-            console.log(message);
-            return false;
-          }
+        if (!res) return false;
+        const { success, message, payload } = res;
+        if (!success) {
+          console.log(message);
+          return false;
+        }
         let temp = 0;
         payload.map((item) => {
           temp += item.count;
@@ -1274,13 +1266,12 @@ export default {
         };
       });
       api.getFinishCount({ workshopCode, days: 0 }).then((res) => {
-  
-           if(!res) return false;
-          const {success,message,payload} = res;
-          if(!success){
-            console.log(message);
-            return false;
-          }
+        if (!res) return false;
+        const { success, message, payload } = res;
+        if (!success) {
+          console.log(message);
+          return false;
+        }
 
         let temp = 0;
         payload.map((item) => {
@@ -1307,14 +1298,13 @@ export default {
         };
       });
 
-      api.getUtilizationRate({ workshopCode }).then((res) => {
-
-           if(!res) return false;
-          const {success,message,payload} = res;
-          if(!success){
-            console.log(message);
-            return false;
-          }
+      api.getUtilizationRate({ workshopCode, days: "" }).then((res) => {
+        if (!res) return false;
+        const { success, message, payload } = res;
+        if (!success) {
+          console.log(message);
+          return false;
+        }
         this.utilizationObj = payload;
         const { count, totalCount } = payload;
 

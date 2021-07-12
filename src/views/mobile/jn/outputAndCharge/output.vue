@@ -1,7 +1,7 @@
 <!--  -->
 <template>
   <mobile-container>
-    <div class="p-assemble" :style="{ 'min-height': heightStyle }">
+    <div class="p-assemble" :style="{ 'min-height': heightStyle}">
       <div class="title">晶能装配产量看板</div>
       <div class="search">
         <div class="search__item" @click="openPicker">
@@ -184,6 +184,7 @@ export default {
 
 table {
   width: 100%;
+  font-size: 0.45rem;
 }
 td {
   border: 1px solid #fff;

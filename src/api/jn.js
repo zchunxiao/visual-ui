@@ -2,14 +2,14 @@ import request from "@/request"
 //报警列表
 const fetchJnListAlarmInfo=()=> {
     return request({
-        url: '/bi/jn/alarm/listAlarmInfo',
+        url: '/dev/jn/cdj/alarms',
         method: 'get'
     })
 }
 // 获取机房实时利用率
 const  fetchJnRealTimeAvailability=()=> {
     return request({
-        url: '/bi/jn/charge/getRealTimeAvailability',
+        url: '/dev/jn/cdj/availability',
         method: 'get'
     })
 }
@@ -17,7 +17,7 @@ const  fetchJnRealTimeAvailability=()=> {
 // 获取回路状态
 const fetchJnLoopState=()=> {
     return request({
-        url: "/bi/jn/loopState/state",
+        url: "/dev/jn/cdj/loop/status",
         method: 'get'
     })
 }
@@ -25,7 +25,7 @@ const fetchJnLoopState=()=> {
 // 回路利用率
 const fetchJnUtilRate=()=> {
     return request({
-        url: '/bi/jn/utilRate',
+        url: '/dev/jn/cdj/rates/utilization',
         method: 'get'
     })
 }
@@ -33,7 +33,7 @@ const fetchJnUtilRate=()=> {
 // 获取当天机房产量
 const fetchJnDayNum =()=> {
     return request({
-        url: "/bi/jn/charge/day",
+        url: "/dev/jn/cdj/output/day",
         method: 'get'
     })
 }
@@ -41,7 +41,7 @@ const fetchJnDayNum =()=> {
 // 获取当月机房产量
 const fetchJnMonthNum =()=> {
     return request({
-        url: "/bi/jn/charge/month",
+        url: "/dev/jn/cdj/output/month",
         method: 'get'
     })
 }
@@ -49,7 +49,7 @@ const fetchJnMonthNum =()=> {
 // 获取7天能耗趋势图
 const fetchJnTrend =()=> {
     return request({
-        url: "/bi/jn/energyConsumption/trend",
+        url: "/dev/jn/cdj/consumption/trend",
         method: 'get'
     })
 }
@@ -57,7 +57,7 @@ const fetchJnTrend =()=> {
 // 晶能充放电
 const getJnBaseMap =()=> {
     return request({
-        url: "/bi/jn/BaseMap/getBaseMap",
+        url: "/dev/jn/cdj/status",
         method: 'get',
     })
 }
@@ -68,7 +68,8 @@ const getJnBaseMap =()=> {
 
 const getJnOutput=()=> {
     return request({
-        url: "/bi/jn/DevDjInfo/output",
+        // url: "/bi/jn/DevDjInfo/output",
+        url:"/dev/jn/dj/output",
         method: "get"
     })
 }
@@ -78,7 +79,7 @@ const getJnOutput=()=> {
 // 晶能点塑机状态
 const getJnStatus=()=> {
     return request({
-        url: "/bi/jn/DevDjInfo/status",
+        url: "/dev/jn/dj/status",
         method: "get"
     })
 }
@@ -87,16 +88,16 @@ const getJnStatus=()=> {
 // 移动端
 // 晶能充电面板
 const getCharge =()=>{
-    return request.get(`/bi/jn/charge/output`)
+    return request.get(`/dev/jn/cdj/output`)
 }
 // 晶能装配产量看板
 const getOutput =(params)=>{
-    return request.get(`/bi/jn/assembly/output`,{params})
+    return request.get(`/dev/jn/assembly/output`,{params})
 }
 
 //当天开工确认人数和基地下产线编制人数
 const getWorkList=(params)=>{
-    return request.get(`/client/start/work/getlist`,{params})
+    return request.get(`/mes/jn/statistics/works`,{params})
 }
 
 

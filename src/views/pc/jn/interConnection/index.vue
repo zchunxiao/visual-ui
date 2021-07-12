@@ -180,7 +180,7 @@ export default {
         });
       });
 
-      api.getMsOutput().then((res) => {
+      api.getJnOutput().then((res) => {
         if (!res) return false;
         const { code, msg, data } = res;
         if (code != 0) {

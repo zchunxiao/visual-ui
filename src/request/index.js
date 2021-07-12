@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-07-10 16:24:55
+ * @LastEditTime: 2021-07-12 08:32:45
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \visual-ui\src\request\index.js
+ */
 import axios from 'axios'
 import { serialize } from '@/util/util'
 
@@ -14,13 +22,13 @@ import qs from 'qs'
 axios.defaults.validateStatus = function (status) {
   return status >= 200 && status <= 500 // 默认的
 }
-// 根据环境设置baseUrl
-if(window.pageType =='pc'){
-  axios.defaults.baseURL= process.env.NODE_ENV == 'development'?  '/' :"http://192.168.33.86:8001"
-}else{
-  axios.defaults.baseURL= process.env.NODE_ENV == 'development'?  '/' :"http://192.168.33.186:8082"
-}
-
+// // 根据环境设置baseUrl
+// if(window.pageType =='pc'){
+//   axios.defaults.baseURL= process.env.NODE_ENV == 'development'?  '/' :"http://192.168.33.86:8001"
+// }else{
+//   axios.defaults.baseURL= process.env.NODE_ENV == 'development'?  '/' :"http://192.168.33.186:8082"
+// }
+axios.defaults.baseURL= process.env.NODE_ENV == 'development'?  '/ai' :"/bi"
 
 // 设置请求超时时间
 axios.defaults.timeout = 30000
